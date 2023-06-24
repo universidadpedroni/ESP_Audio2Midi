@@ -7,15 +7,18 @@
 #include "esp_adc_cal.h"
 
 
+
+
 #define DEFAULT_VREF    1100        // Valor de referencia por defecto en mV (para ADC de 12 bits)
-#define ADC_WIDTH       ADC_WIDTH_BIT_12
-#define ADC_ATTEN       ADC_ATTEN_DB_11
+
 
 
 fftAux FFTAux(SAMPLES, SAMPLING_FREQ);
 SerialFuncClass sf; // Create an instance of the serialFunc class
 
 nota_t nota = {0, 0, 0, 0};
+
+
 
 void Adquire(){
     digitalWrite(GPIO_NUM_17, HIGH);
@@ -33,7 +36,7 @@ void setup(){
     //SerialMidi.begin(MIDI_BAUDRATE);
     pinMode(GPIO_NUM_17, OUTPUT);
     adc1_config_width(ADC_WIDTH_BIT_12);
-    adc1_config_channel_atten(ADC1_CHANNEL_0, ADC_ATTEN);
+    adc1_config_channel_atten(ADC1_CHANNEL_0, ADC_ATTEN_11db);
     Serial.println("Ready");
 
     Serial.println("Setup finished!");

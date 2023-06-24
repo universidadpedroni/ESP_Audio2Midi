@@ -20,3 +20,7 @@ struct nota_t  {
     double peakFreq;
     double Magnitude;  
 };
+
+uint16_t adcBuffer[SAMPLES];
+int bufferIndex = 0;
+bool bufferFilled = false;
